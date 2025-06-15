@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         {
           path:'/assignments', 
           loader: () => fetch('http://localhost:3500/assignment'),
-          element: <PrivateRoute>  <AllAssignments></AllAssignments> </PrivateRoute>,
+          element:  <AllAssignments></AllAssignments> ,
            hydrateFallbackElement:<Loading/>
                 },
         {
