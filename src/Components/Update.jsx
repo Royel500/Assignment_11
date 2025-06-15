@@ -32,12 +32,13 @@ const Update = () => {
               .then((res) => res.json())
               .then((data) => {
                 if (data.modifiedCount) {
-                  Swal.fire({
-                    title: 'Success!',
-                    text: 'Assignment Updated successfully!',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                  });
+                 Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Assignment Updated successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
                   form.reset();
                   setDueDate(null);
                 }
@@ -45,8 +46,8 @@ const Update = () => {
 
     }
     return (
-         <div className="max-w-xl mx-auto mt-8 bg-base-100 p-6 rounded shadow">
-            <h2 className="text-2xl font-bold mb-6">Update Your Assignment</h2>
+         <div className="max-w-xl mx-auto mt-8 bg-purple-200 p-6 rounded-xl shadow">
+            <h2 className="text-2xl font-bold mb-6 italic text-green-500 underline text-center " >Update Your Assignment</h2>
             <form onSubmit={UpdateAssignment} className="space-y-4">
       
               <input
