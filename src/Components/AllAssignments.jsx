@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData, NavLink } from 'react-router';
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
@@ -8,10 +8,10 @@ import { AuthContext } from '../Context/AuthContext';
 
 const AllAssignments = () => {
     const { user } = useContext(AuthContext); 
-    const assignment = useLoaderData();
+    const loadedAssignments = useLoaderData();
+    const [assignments, setAssignments] = useState(loadedAssignments); 
 
     const handleDelete = (assart) => {
-        // Check user email matches assignment email
         if (user?.email !== assart.email) {
             Swal.fire({
                 icon: 'error',
@@ -42,6 +42,8 @@ const AllAssignments = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
+                            // Remove deleted assignment from state
+                            setAssignments(assignments.filter(a => a._id !== assart._id));
                         }
                     });
             }
@@ -53,7 +55,7 @@ const AllAssignments = () => {
             <h1 className='font-bold text-3xl text-center italic my-5 text-fuchsia-800'> All the Assignments here</h1>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 mx-5'>
                 {
-                    assignment.map(assart => (
+                    assignments.map(assart => (
                         <div className="card grid grid-cols-3 mx-2 py-3  bg-fuchsia-100 gap-5   shadow-2xl" key={assart._id}>
                             <figure>
                                 <img

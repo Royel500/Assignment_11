@@ -24,7 +24,8 @@ const googleMama = () =>{
 
   // Login
   const logIn = (email, password) => {
-    return signInWithEmailAndPassword( auth,email, password); // ✅ Pass auth
+
+    return signInWithEmailAndPassword( auth,email, password);
   };
 
 // -------SignOut--------
@@ -36,16 +37,24 @@ const logOut = () =>{
 
 // --------user -----------
 
-  useEffect(()=>{
-    const unsubcribe = onAuthStateChanged(auth,currentUser =>{
-      setUser(currentUser);
-      setLoading(false);
-      // console.log('User Is present here ' , currentUser)
-    });
-return () =>{
-  unsubcribe();
-}
-  },[]);
+ useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, currentUser => {
+    setUser(currentUser);
+    setLoading(false);
+
+    if (currentUser) {
+      const userInfo = {
+        email: currentUser.email,
+        displayName: currentUser.displayName || "Anonymous",
+        photoURL: currentUser.photoURL || ""
+      };
+      localStorage.setItem("user", JSON.stringify(userInfo));
+    } else {
+      localStorage.removeItem("user");
+    }
+  });
+  return () => unsubscribe();
+}, []);
 
 
 // --------shear---------
