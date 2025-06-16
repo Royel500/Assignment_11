@@ -29,7 +29,7 @@ console.log(assignments);
                   <td>{a.status || "Pending"}</td>
                   <td>{a.assignmentMarks || "N/A"}</td>
                   <td>{a.obtainedMarks || "Waiting"}</td>
-                  <td>{a.quickNote || "Not yet given"}</td>
+                  <td>{a.feedback || "Not yet given"}</td>
                 </tr>
               ))
             }
