@@ -70,7 +70,7 @@ const Pending = () => {
               <tr key={sub._id}>
                 <td>{sub.assignmentTitle}</td>
                 <td>{sub.assignmentMarks}</td>
-                <td>{sub.submittedBy.name}</td>
+                <td>{sub.userName}</td>
                 <td>
                   <button
                     className="btn btn-sm btn-info"

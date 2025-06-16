@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Context/AuthContext';
 
 const Details = () => {
   const data = useLoaderData();
-  const [showModal, setShowModal] = useState(false);
+   const { user } = useContext(AuthContext);
+  console.log(data);
+    const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,6 +15,7 @@ const Details = () => {
     const submission = {
       assignmentId: data._id,
       userEmail: data.email, 
+      userName:user?.displayName,
       assignmentTitle:data.title,
       assignmentMarks:data.marks,
       googleDocsLink: form.link.value,
