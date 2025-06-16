@@ -6,7 +6,14 @@ import Marquee from 'react-fast-marquee';
 const Home = () => {
   return (
     <section>
-        
+        <p className='my-5 bg-fuchsia-200 py-2'>
+        <Marquee>
+ Start Drafts Early to Avoid Stress! •  78% of Students Who Preview Lectures Score Higher •
+   You’ve Completed 12/20 Assignments This Term! •  
+</Marquee>
+        </p>
+
+
 
       <BannerSlider />
 
@@ -26,22 +33,19 @@ const Home = () => {
 <div class="featured-examinee my-5">
   <h2 className='text-center text-2xl italic border'>Featured Qualities of an Examinee</h2>
   <ul className='lg:mx-20 my-10 mx-5'>
-    <li><strong>Time Management:</strong> Always submits assignments before or on the deadline.</li>
-    <li><strong>Accuracy & Neatness:</strong> Maintains clear formatting, correct grammar, and a tidy structure.</li>
-    <li><strong>Creativity:</strong> Brings original ideas and a unique perspective to the assignment.</li>
-    <li><strong>Subject Understanding:</strong> Demonstrates deep knowledge and insight into the assignment topic.</li>
-    <li><strong>Consistency:</strong> Performs well across multiple tasks and maintains high standards.</li>
-    <li><strong>Research Skills:</strong> Uses reliable sources and presents well-organized, factual content.</li>
-    <li><strong>Communication Skills:</strong> Explains ideas clearly and effectively in both writing and presentation.</li>
-    <li><strong>Critical Thinking:</strong> Shows the ability to analyze, evaluate, and form reasoned judgments.</li>
-    <li><strong>Responsibility:</strong> Takes ownership of their learning and tasks seriously.</li>
-    <li><strong>Feedback Responsiveness:</strong> Accepts feedback positively and improves based on suggestions.</li>
+   <li><strong>1. Time Management:</strong> Always submits assignments before or on the deadline.</li>
+    <li><strong>2. Accuracy & Neatness:</strong> Maintains clear formatting, correct grammar, and a tidy structure.</li>
+    <li><strong>3. Creativity:</strong> Brings original ideas and a unique perspective to the assignment.</li>
+    <li><strong>4. Subject Understanding:</strong> Demonstrates deep knowledge and insight into the assignment topic.</li>
+    <li><strong>5. Consistency:</strong> Performs well across multiple tasks and maintains high standards.</li>
+    <li><strong>6. Research Skills:</strong> Uses reliable sources and presents well-organized, factual content.</li>
+    <li><strong>7. Communication Skills:</strong> Explains ideas clearly and effectively in both writing and presentation.</li>
+    <li><strong>8. Critical Thinking:</strong> Shows the ability to analyze, evaluate, and form reasoned judgments.</li>
+    <li><strong>9. Responsibility:</strong> Takes ownership of their learning and tasks seriously.</li>
+    <li><strong>10. Feedback Responsiveness:</strong> Accepts feedback positively and improves based on suggestions.</li>
   </ul>
 </div>
 
-<Marquee>
-  This is a scrolling marquee in React!
-</Marquee>
 
 
 <div>

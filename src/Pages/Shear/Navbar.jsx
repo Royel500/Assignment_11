@@ -4,6 +4,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import Swal from 'sweetalert2';
 import './Navbar.css';
 import { ThemeContext } from './ThemeProvider';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 
 const Navbar = () => {
@@ -38,6 +39,7 @@ const Navbar = () => {
 
   const navLinks = user ? (
     <>
+        <NavLink to="/" className="btn btn-ghost text-base"> Home</NavLink>
         <NavLink to="/assignments" className="btn btn-ghost text-base"> Assignments</NavLink>
       <NavLink to="/pending" className="btn btn-ghost text-base">Pending Assignments</NavLink>
   
@@ -66,7 +68,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost font-bold text-xl">Assignments_11</NavLink>
+        <div className=" font-bold mx-2 text-xl">Assignments</div>
       </div>
 
       {/* Center: Desktop Nav */}
@@ -80,8 +82,8 @@ const Navbar = () => {
       <div className="navbar-end gap-3 relative">
 
         
-     <button onClick={toggleTheme} className="btn btn-sm">
-      {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+     <button onClick={toggleTheme} className="mx-2">
+      {theme === 'light' ? <FaSun size={20}></FaSun> : <FaMoon size={20}></FaMoon> }
     </button>
 
 
