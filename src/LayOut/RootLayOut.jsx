@@ -6,7 +6,10 @@ import '../index.css'
 const RootLayOut = () => {
     return (
         <div className=''>
-            <Navbar></Navbar>
+            <p className='sticky top-0 z-9999'>
+                <Navbar />
+            </p>
+      
             <div className='min-h-screen'>
       <Outlet></Outlet>
             </div>
