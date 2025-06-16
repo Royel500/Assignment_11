@@ -11,9 +11,6 @@ const Pending = () => {
     fetch('http://localhost:3500/pending-submissions')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-        // Exclude self-submitted assignments
-        // const filtered = data.filter(sub => sub.submittedBy.email !== user?.email);
         setSubmissions(data);
      
       });
@@ -89,13 +86,17 @@ const Pending = () => {
       {selected && (
         <dialog id="mark_modal" className="modal">
           <form method="dialog" className="modal-box" onSubmit={handleSubmitMark}>
-            <h3 className="font-bold text-lg">Mark Assignment</h3>
+            <h3 className="font-bold italic text-fuchsia-600  text-lg">Mark Assignment</h3>
             <p className="mb-2">
-              <a href={selected.docLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+              <a href={selected.googleDocsLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
                 View Google Doc
               </a>
             </p>
-            <p><strong>Notes:</strong> {selected.notes}</p>
+            <p> <span className='text-sm font-bold'> Examiee Note :</span>
+              {
+                selected.quickNote
+              }
+            </p>
             <div className="mt-4">
               <input name="marks" type="number" placeholder="Give Marks" className="input input-bordered w-full mb-2" required />
               <textarea name="feedback" placeholder="Feedback" className="textarea textarea-bordered w-full mb-2" required />

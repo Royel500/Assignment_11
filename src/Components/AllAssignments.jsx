@@ -1,16 +1,40 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
-import { FaRegEdit } from "react-icons/fa";
+import { FaRegEdit, FaEye } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
-import { FaEye } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Context/AuthContext';
 
 const AllAssignments = () => {
-    const { user } = useContext(AuthContext); 
-    const loadedAssignments = useLoaderData();
-    const [assignments, setAssignments] = useState(loadedAssignments); 
+    const { user } = useContext(AuthContext);
+    const loadedAssignments = useLoaderData(); // Full list from loader
+    const [assignments, setAssignments] = useState(loadedAssignments); // Displayed assignments
+
+    const [searchText, setSearchText] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
+    const [difficultyFilter, setDifficultyFilter] = useState('');
     const navigate = useNavigate();
+
+    // Filtering logic: triggers when searchQuery or difficultyFilter changes
+    useEffect(() => {
+        let filtered = [...loadedAssignments];
+
+        if (searchQuery) {
+            filtered = filtered.filter(a =>
+                a.title.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+        }
+
+        if (difficultyFilter) {
+            filtered = filtered.filter(a => a.difficulty === difficultyFilter);
+        }
+
+        setAssignments(filtered);
+    }, [searchQuery, difficultyFilter, loadedAssignments]);
+
+    const handleSearchClick = () => {
+        setSearchQuery(searchText);
+    };
 
     const handleDelete = (assart) => {
         if (user?.email !== assart.email) {
@@ -63,10 +87,37 @@ const AllAssignments = () => {
     };
 
     return (
-        <div className='bg-amber-50 my-10 '>
+        <div className='bg-amber-50 my-10'>
             <h1 className='font-bold text-3xl text-center italic my-5 text-fuchsia-800'>
                 All the Assignments here
             </h1>
+
+            {/* Filter UI */}
+            <div className="flex flex-col lg:flex-row justify-between items-center gap-4 mx-5 mb-6">
+                <div className="flex gap-2 w-full lg:w-full">
+                    <input
+                        type="text"
+                        placeholder="Search by title..."
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
+                        className="input input-bordered w-full"
+                    />
+                    <button onClick={handleSearchClick} className="btn btn-primary">Search</button>
+                </div>
+
+                <select
+                    value={difficultyFilter}
+                    onChange={(e) => setDifficultyFilter(e.target.value)}
+                    className="select select-bordered"
+                >
+                    <option value="">All Difficulties</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+
+            {/* Assignments Grid */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 mx-5'>
                 {assignments.map(assart => (
                     <div className="card grid grid-cols-3 mx-2 py-3 bg-fuchsia-100 gap-5 shadow-2xl" key={assart._id}>
@@ -80,20 +131,15 @@ const AllAssignments = () => {
                         <div className="card-body">
                             <h2 className="card-title flex flex-row">Title: {assart.title}</h2>
                             <p>Difficulty: {assart.difficulty}</p>
-                            <p> MArks: {assart.marks}</p>
+                            <p>Marks: {assart.marks}</p>
                         </div>
                         <div className="grid justify-end lg:pr-10 gap-2">
-                            {/* Update button with email check */}
                             <button onClick={() => handleUpdateClick(assart)} className="btn">
                                 <FaRegEdit size={25} />
                             </button>
-
-                            {/* View button (no check) */}
                             <button onClick={() => navigate(`/details/${assart._id}`)} className="btn">
                                 <FaEye size={25} />
                             </button>
-
-                            {/* Delete button with email check */}
                             <button onClick={() => handleDelete(assart)} className="btn">
                                 <MdDeleteForever size={25} />
                             </button>

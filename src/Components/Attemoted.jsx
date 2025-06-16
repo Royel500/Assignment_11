@@ -3,11 +3,9 @@ import { useLoaderData } from 'react-router';
 
 const Attemoted = () => {
   const assignments = useLoaderData();
-
-console.log(assignments);
   return (
-    <div className="max-w-6xl mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-6 text-center">My Submitted Assignments</h2>
+    <div className="max-w-6xl bg-cyan-50 mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-6 italic text-center">My Submitted Assignments</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           <thead>
