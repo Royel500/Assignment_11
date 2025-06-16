@@ -3,10 +3,15 @@ import { NavLink } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import Swal from 'sweetalert2';
 import './Navbar.css';
+import { ThemeContext } from './ThemeProvider';
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
   const handleLogout = () => {
     logOut()
@@ -45,6 +50,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
+      
       {/* Left: Logo and Mobile Menu */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -72,6 +78,13 @@ const Navbar = () => {
 
       {/* Right: Profile Picture + Logout */}
       <div className="navbar-end gap-3 relative">
+
+        
+     <button onClick={toggleTheme} className="btn btn-sm">
+      {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+    </button>
+
+
         {user ? (
           <div className="flex items-center gap-3 relative">
             {/* Profile Picture Toggle */}
