@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router';
 
 const Attemoted = () => {
   const assignments = useLoaderData();
+
 console.log(assignments);
   return (
     <div className="max-w-6xl mx-auto p-4">
@@ -25,9 +26,9 @@ console.log(assignments);
                 <tr key={a._id}>
                   <td>{idx + 1}</td>
                   <td>{a.assignmentTitle || "N/A"}</td>
-                  <td>{a.status}</td>
-                  <td>{a.totalMarks || "N/A"}</td>
-                  <td>{a.obtainedMarks || "Pending"}</td>
+                  <td>{a.status || "Pending"}</td>
+                  <td>{a.assignmentMarks || "N/A"}</td>
+                  <td>{a.obtainedMarks || "Waiting"}</td>
                   <td>{a.quickNote || "Not yet given"}</td>
                 </tr>
               ))

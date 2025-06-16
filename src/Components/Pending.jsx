@@ -8,14 +8,17 @@ const Pending = () => {
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3500/submissions?status=pending')
+    fetch('http://localhost:3500/pending-submissions')
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         // Exclude self-submitted assignments
-        const filtered = data.filter(sub => sub.submittedBy.email !== user?.email);
-        setSubmissions(filtered);
+        // const filtered = data.filter(sub => sub.submittedBy.email !== user?.email);
+        setSubmissions(data);
+     
       });
   }, [user]);
+     console.log(submissions);
 
   const handleGiveMark = (submission) => {
     setSelected(submission);
@@ -63,6 +66,7 @@ const Pending = () => {
           </thead>
           <tbody>
             {submissions.map(sub => (
+             
               <tr key={sub._id}>
                 <td>{sub.assignmentTitle}</td>
                 <td>{sub.assignmentMarks}</td>

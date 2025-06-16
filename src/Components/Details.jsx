@@ -13,6 +13,7 @@ const Details = () => {
       assignmentId: data._id,
       userEmail: data.email, 
       assignmentTitle:data.title,
+      assignmentMarks:data.marks,
       googleDocsLink: form.link.value,
       quickNote: form.note.value,
       status: "pending",
