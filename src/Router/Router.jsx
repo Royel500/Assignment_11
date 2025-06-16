@@ -16,12 +16,14 @@ import PrivateRoute from "./PrivateRoute";
 import Details from "../Components/Details";
 import Update from "../Components/Update";
 import Loading from "../Pages/Shear/Loading";
+import Error from "../Pages/Shear/Error";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayOut></RootLayOut>,
+    errorElement:<Error></Error>,
     children:[
         {
             index:true ,
@@ -81,7 +83,8 @@ loader: async () => {
         }
 
 
-    ]
+    ],
+  
   },
 ]);
 
