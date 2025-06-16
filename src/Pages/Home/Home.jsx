@@ -30,8 +30,8 @@ const Home = () => {
       </h3>
 
 
-<div class="featured-examinee my-5">
-  <h2 className='text-center text-2xl italic border'>Featured Qualities of an Examinee</h2>
+<div class="featured-examinee my-5 border mx-5">
+  <h2 className='text-center text-2xl italic '>Featured Qualities of an Examinee</h2>
   <ul className='lg:mx-20 my-10 mx-5'>
    <li><strong>1. Time Management:</strong> Always submits assignments before or on the deadline.</li>
     <li><strong>2. Accuracy & Neatness:</strong> Maintains clear formatting, correct grammar, and a tidy structure.</li>
