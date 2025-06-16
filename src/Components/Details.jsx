@@ -12,6 +12,7 @@ const Details = () => {
     const submission = {
       assignmentId: data._id,
       userEmail: data.email, 
+      assignmentTitle:data.title,
       googleDocsLink: form.link.value,
       quickNote: form.note.value,
       status: "pending",

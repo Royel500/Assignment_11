@@ -2,7 +2,6 @@ import React, { use, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import Swal from 'sweetalert2';
 import 'react-datepicker/dist/react-datepicker.css'; 
-import AuthProvider from './../Context/AuthProvider';
 import { AuthContext } from '../Context/AuthContext';
 
 const CreateAssignment = () => {
@@ -44,8 +43,8 @@ const CreateAssignment = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-8 bg-base-100 p-6 rounded shadow">
-      <h2 className="text-2xl font-bold mb-6">Create Assignment</h2>
+    <div className="max-w-xl  mx-auto my-8 bg-pink-100 p-6 rounded shadow">
+      <h2 className="text-2xl font-bold italic text-center underline text-blue-700 mb-6">Create Assignment</h2>
       <form onSubmit={AddAssignment} className="space-y-4">
 
         <input

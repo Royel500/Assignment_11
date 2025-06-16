@@ -5,10 +5,10 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Swal from 'sweetalert2';
 const Update = () => {
 
-    const {_id,title,description,marks,thumbnail,difficulty,email,} = useLoaderData();
+  const { _id, title, description, marks, thumbnail, difficulty, email, dueDate: initialDueDate } = useLoaderData();
     console.log(title);
 
-      const [dueDate, setDueDate] = useState(null);
+    const [dueDate, setDueDate] = useState(initialDueDate ? new Date(initialDueDate) : null);
 
 
     const UpdateAssignment = e =>{
@@ -46,7 +46,7 @@ const Update = () => {
 
     }
     return (
-         <div className="max-w-xl mx-auto mt-8 bg-purple-200 p-6 rounded-xl shadow">
+         <div className="max-w-xl mx-auto my-10 bg-purple-200 p-6 rounded-xl shadow-2xl">
             <h2 className="text-2xl font-bold mb-6 italic text-green-500 underline text-center " >Update Your Assignment</h2>
             <form onSubmit={UpdateAssignment} className="space-y-4">
       

@@ -51,9 +51,9 @@ loader: async () => {
   const userData = localStorage.getItem("user");
   if (!userData) return redirect('/signIn');
   const user = JSON.parse(userData);
-  const encodedEmail = encodeURIComponent(user.email);  // ✅ encode it
+  const encodedEmail = encodeURIComponent(user.email);  
   const res = await fetch(`http://localhost:3500/submittedAssignments/${encodedEmail}`);
-  return res.json();  // ✅ important to convert to json
+  return res.json(); 
 },
 
   element: <PrivateRoute><Attemoted /></PrivateRoute>
