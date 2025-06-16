@@ -46,6 +46,7 @@ const Navbar = () => {
     </>
   ) : (
     <>
+     <NavLink to="/" className="btn btn-ghost text-base"> Home</NavLink>
       <NavLink to="/assignments" className="btn btn-ghost text-base">Assignments</NavLink>
     </>
   );

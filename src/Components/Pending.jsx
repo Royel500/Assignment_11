@@ -49,23 +49,25 @@ const Pending = () => {
   };
 
   return (
-    <div className="p-5">
+    <div className="p-5 my-10 mx-3 bg-lime-50 border">
       <h2 className="text-2xl font-bold text-center mb-6">Pending Assignments</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
-            <tr>
-              <th>Title</th>
+            <tr className='border border-red-300'>
+              <th># Title</th>
               <th>Marks</th>
               <th>Examinee</th>
               <th>Action</th>
             </tr>
+           
           </thead>
           <tbody>
-            {submissions.map(sub => (
+            {submissions.map((sub,idx) => (
              
-              <tr key={sub._id}>
-                <td>{sub.assignmentTitle}</td>
+              <tr  key={sub._id} className="border border-red-300" >
+         
+                <td> {idx +1}. {sub.assignmentTitle}</td>
                 <td>{sub.assignmentMarks}</td>
                 <td>{sub.userName ||'Undefined' }</td>
                 <td>
@@ -75,6 +77,7 @@ const Pending = () => {
                   >
                     Give Mark
                   </button>
+                  
                 </td>
               </tr>
             ))}

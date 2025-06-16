@@ -49,7 +49,7 @@ const SignIn = () => {
           <div><a className="link link-hover">Forgot password?</a></div>
           <button className="btn btn-neutral w-full my-2 mt-4">Login</button>
           <p>Have no Account ? <span className='text-fuchsia-800 text-[15px]  font-bold'>
-            <NavLink to='/singUp'  >SignUp</NavLink></span>  </p>
+            <NavLink to='/signUp'  >SignUp</NavLink></span>  </p>
         </form>
         <SocialLogIn></SocialLogIn>
       </div>
