@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayOut></RootLayOut>,
-    errorElement:<Error></Error>,
+
     children:[
         {
             index:true ,
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
           element: <PrivateRoute><Assignments></Assignments> </PrivateRoute> 
         },
 
-// In your router
+
 {
   path: '/attempted',
 loader: async () => {
@@ -86,6 +86,10 @@ loader: async () => {
     ],
   
   },
+  {
+    path:'/*',
+    element:<Error></Error>
+  }
 ]);
 
 

@@ -14,11 +14,15 @@
     "cally": "^0.8.0",
     "firebase": "^11.8.1",
     "react": "^19.1.0",
+    "react-awesome-reveal": "^4.3.1",
     "react-datepicker": "^8.4.0",
     "react-dom": "^19.1.0",
+    "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.5.0",
     "react-router": "^7.6.1",
-    "sweetalert2": "^11.22.0"
+    "react-simple-typewriter": "^5.0.1",
+    "sweetalert2": "^11.22.0",
+    "swiper": "^11.2.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
