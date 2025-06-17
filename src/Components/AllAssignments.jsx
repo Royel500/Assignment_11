@@ -128,11 +128,12 @@ const AllAssignments = () => {
             {/* Assignments Grid */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 mx-5'>
                 {assignments.map(assart => (
-    <div className={`card grid grid-cols-3 bg-gradient-to-r from-cyan-500 to-red-300 mx-2 py-3  gap-5 shadow-2xl${
+    <div className={`card grid lg:grid-cols-2 grid-cols-1  bg-gradient-to-r from-cyan-500 to-red-300 mx-2 py-3  gap-5 shadow-2xl${
                                theme === 'dark' 
         ? 'bg-gray-900 text-white' 
         : ''
                     }`} key={assart._id}>
+                      
                         <figure>
                             <img
                                 className='w-50 h-30 rounded-2xl'
@@ -140,11 +141,15 @@ const AllAssignments = () => {
                                 alt="Thumbnail"
                             />
                         </figure>
+                          <div className='grid grid-cols-2 px-3'>
+
+                          
                         <div className="card-body">
                             <h2 className="card-title flex flex-row">Title: {assart.title}</h2>
                             <p>Difficulty: {assart.difficulty}</p>
                             <p>Marks: {assart.marks}</p>
                         </div>
+                          
                         <div className="grid justify-end lg:pr-10 gap-2">
                             <button onClick={() => handleUpdateClick(assart)} className="btn">
                                 <FaRegEdit size={25} />
@@ -156,6 +161,7 @@ const AllAssignments = () => {
                                 <MdDeleteForever size={25} />
                             </button>
                         </div>
+                              </div>
                     </div>
                 ))}
             </div>

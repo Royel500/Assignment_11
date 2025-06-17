@@ -16,7 +16,7 @@ const Details = () => {
     const form = e.target;
     const submission = {
       assignmentId: data._id,
-      userEmail: data.email, 
+      userEmail: user?.email, 
       userName:user?.displayName,
       assignmentTitle:data.title,
       assignmentMarks:data.marks,

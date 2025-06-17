@@ -1,6 +1,6 @@
 import {
   createBrowserRouter,
-  redirect,
+  
 
 } from "react-router";
 import RootLayOut from "../LayOut/RootLayOut";
@@ -47,19 +47,10 @@ const router = createBrowserRouter([
         },
 
 
-{
-  path: '/attempted',
-loader: async () => {
-  const userData = localStorage.getItem("user");
-  if (!userData) return redirect('/signIn');
-  const user = JSON.parse(userData);
-  const encodedEmail = encodeURIComponent(user.email);  
-  const res = await fetch(`http://localhost:3500/submittedAssignments/${encodedEmail}`);
-  return res.json(); 
-},
-
-  element: <PrivateRoute><Attemoted /></PrivateRoute>
-},
+          {
+            path: '/attempted',
+            element: <PrivateRoute><Attemoted /></PrivateRoute>
+          },
 
 
         {
