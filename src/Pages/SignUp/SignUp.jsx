@@ -75,7 +75,7 @@ const SignUp = () => {
             <input type="email" name="email" className="input" placeholder="Email" required />
 
             <label className="label">Photo URL</label>
-            <input type="text" name="photo" className="input" placeholder="Photo URL" required />
+            <input type="text" name="photo" className="input" placeholder="Photo URL"  />
 
             <label className="label">Password</label>
             <input

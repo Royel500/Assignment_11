@@ -78,7 +78,7 @@ loader: async () => {
         {
           path:'/update/:id' ,
         loader: ({params}) => fetch(`http://localhost:3500/assignment/${params.id}`),
-          element:<Update></Update>,
+          element: <PrivateRoute> <Update></Update>  </PrivateRoute> ,
           hydrateFallbackElement:<Loading/>
         }
 

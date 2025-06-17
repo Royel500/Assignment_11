@@ -9,7 +9,7 @@ const Footer = () => {
      <footer className={`footer mt-8 sm:footer-horizontal text-base-content  p-10 ${
          theme === 'dark' 
         ? 'bg-gray-900 text-white' 
-        : 'bg-gradient-to-r from-yellow-300 via-sky-300 to-red-200 text-gray-800'
+        : 'bg-gradient-to-r from-pink-400 via--300 to-sky-400 text-gray-800'
      }`} > 
      
              {/* <nav className={`relative px-4 py-3 shadow-lg ${

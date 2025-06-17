@@ -128,7 +128,7 @@ const AllAssignments = () => {
             {/* Assignments Grid */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 mx-5'>
                 {assignments.map(assart => (
-                    <div className={`card grid grid-cols-3 bg-gradient-to-r  via-green-500 to-red-300 mx-2 py-3  gap-5 shadow-2xl${
+    <div className={`card grid grid-cols-3 bg-gradient-to-r from-cyan-500 to-red-300 mx-2 py-3  gap-5 shadow-2xl${
                                theme === 'dark' 
         ? 'bg-gray-900 text-white' 
         : ''
