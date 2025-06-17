@@ -16,7 +16,7 @@ const Pending = () => {
   }, [user]);
 
 const handleGiveMark = (submission) => {
-
+console.log(user.email , submission.email)
 
   if (user?.email === submission.userEmail) {
     Swal.fire({
