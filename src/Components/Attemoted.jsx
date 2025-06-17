@@ -21,7 +21,7 @@ const Attemoted = () => {
       }
 
       try {
-        const res = await fetch(`http://localhost:3500/submittedAssignments/${encodeURIComponent(email)}`);
+        const res = await fetch(`https://assignment-server-11-roan.vercel.app/submittedAssignments/${encodeURIComponent(email)}`);
         const data = await res.json();
        
         setAssignments(data);

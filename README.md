@@ -1,5 +1,45 @@
 # React + Vite
 
+
+
+# Future Assignments Management
+
+## Purpose
+This project is a web application to manage assignments and their submissions. Users can create assignments, submit their work, and track their submissions along with feedback and marks. The app supports user authentication and theme toggling.
+
+## Live URL
+[https://assignment-11-c11e7.web.app]
+
+## Key Features
+- User registration and authentication
+- Create, update, delete assignments (for teachers/admin)
+- Submit assignments (for students)
+- View submitted assignments with status, marks, and feedback
+- Pending assignments dashboard for teachers to review and mark submissions
+- Dark and light theme toggle
+- Responsive UI with clean and modern design
+
+## Technologies & npm Packages Used
+- **React** – Frontend UI library
+- **React Router** – Routing and navigation
+- **React Context API** – State management for auth and theme
+- **Express.js** – Backend API server
+- **MongoDB & Mongoose** – Database for storing assignments and submissions
+- **dotenv** – Manage environment variables
+- **cors** – Enable CORS for backend
+- **react-datepicker** – Date picker for assignment due dates
+- **daisyUI + TailwindCSS** – Styling and UI components
+- **framer-motion** – Animations
+- **sweetalert2** – Beautiful alerts and modals
+
+---
+
+Feel free to customize or add any additional info like setup instructions, API endpoints, or screenshots!
+
+If you want, I can generate a more detailed README with those sections too.
+
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

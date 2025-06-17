@@ -3,7 +3,7 @@ import BannerSlider from './BannerSlider';
 import { Typewriter } from 'react-simple-typewriter';
 import Marquee from 'react-fast-marquee';
 import { ThemeContext } from './../Shear/ThemeProvider';
-
+import { motion } from 'framer-motion';
 const Home = () => {
   const {theme} =use(ThemeContext);
   return (
@@ -55,6 +55,24 @@ const Home = () => {
 
 
 <div>
+
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 10, ease: 'easeOut' }}
+      className="min-h-screen flex items-center justify-center bg-blue-100"
+    >
+      <div className="text-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-purple-800 mb-4">
+          Welcome to Job Assignments
+        </h1>
+        <p className="text-lg text-gray-700">
+          Create, submit, and track assignments with ease.
+        </p>
+      </div>
+    </motion.div>
+
+
 
     <div className="space-y-4 mx-10 my-6">
         <h1 className='text-3xl text-center font-bold italic '>FAQ .</h1>

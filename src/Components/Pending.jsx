@@ -8,7 +8,7 @@ const Pending = () => {
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3500/pending-submissions')
+    fetch('https://assignment-server-11-roan.vercel.app/pending-submissions')
       .then(res => res.json())
       .then(data => {
         setSubmissions(data);
@@ -37,7 +37,7 @@ const handleGiveMark = (submission) => {
     const marks = form.marks.value;
     const feedback = form.feedback.value;
 
-    const res = await fetch(`http://localhost:3500/mark-assignment/${selected._id}`, {
+    const res = await fetch(`https://assignment-server-11-roan.vercel.app/mark-assignment/${selected._id}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({

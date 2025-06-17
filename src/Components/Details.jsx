@@ -26,7 +26,7 @@ const Details = () => {
       submittedAt: new Date().toISOString()
     };
 
-    const res = await fetch('http://localhost:3500/submittedAssignment', {
+    const res = await fetch('https://assignment-server-11-roan.vercel.app/submittedAssignment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(submission)
