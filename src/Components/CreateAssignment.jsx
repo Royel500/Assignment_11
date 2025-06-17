@@ -17,7 +17,7 @@ const CreateAssignment = () => {
     // Add formatted dueDate
     assignment.dueDate = dueDate ? dueDate.toISOString().split('T')[0] : '';
 
-    console.log('Assignment to submit:', assignment);
+  
 
     // POST request
     fetch('http://localhost:3500/assignment', {
@@ -110,7 +110,9 @@ const CreateAssignment = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn bg-gradient-to-r
+         from-red-400 
+         to-green-600  text-gray-800 w-full">
           Create Assignment
         </button>
       </form>

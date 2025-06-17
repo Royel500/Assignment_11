@@ -75,7 +75,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <div className=" font-bold mx-2 text-xl">Assignments</div>
+        <div className=" font-bold mx-2 text-xl">Job Assignments</div>
       </div>
 
       {/* Center: Desktop Nav */}

@@ -8,7 +8,7 @@ const Details = () => {
   const {theme} =use(ThemeContext);
   const data = useLoaderData();
    const { user } = useContext(AuthContext);
-  console.log(data);
+
     const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -41,35 +41,34 @@ const Details = () => {
   };
 
   return (
-    <div className={`max-w-xl bg-gradient-to-r from-amber-100 to-cyan-500  mx-auto mt-8  p-6 rounded shadow${
+     <> 
+    <h1 className='text-3xl text-fuchsia-800
+     font-bold text-center my-2 italic underline'> This is Details Page Of the Assignment</h1>
+    <div className={`max-w-xl bg-gradient-to-r
+     font-bold from-amber-200 to-cyan-500  mx-auto mt-8 
+      p-6 rounded shadow${
         theme === 'dark' 
         ? 'bg-gray-900 text-white' 
-        : 'bg-gray-900'
+        : ''
     }`}>
 
-             {/* <nav className={`relative px-4 py-3 shadow-lg ${
-      theme === 'dark' 
-        ? 'bg-gray-900 text-white' 
-        : 'bg-gradient-to-r from-blue-400 via-green-500 to-red-300 text-gray-800'
-    }`}>
 
-    
-    </nav> */}
-
-      <h2 className="text-2xl font-bold mb-4 text-center italic underline text-blue-700">{data.title}</h2>
+                
+      <h2 className="text-2xl font-bold mb-4 text-center italic
+       underline text-blue-700"> {data.title}</h2>
       <img src={data.thumbnail} alt={data.title} className="w-full h-48 object-cover rounded mb-4" />
-      <p><strong>Description:</strong> {data.description}</p>
-      <p><strong>Marks:</strong> {data.marks}</p>
-      <p><strong>Difficulty:</strong> {data.difficulty}</p>
-      <p><strong>Due Date:</strong> {data.dueDate}</p>
-      <p><strong>Email:</strong> {data.email}</p>
+      <p><strong className='underline text-fuchsia-600 italic'>Description:</strong> {data.description}</p>
+      <p><strong className='underline text-fuchsia-600 italic'>Marks:</strong> {data.marks}</p>
+      <p><strong className='underline text-fuchsia-600 italic'>Difficulty:</strong> {data.difficulty}</p>
+      <p><strong className='underline text-fuchsia-600 italic'>Due Date:</strong> {data.dueDate}</p>
+      <p><strong className='underline text-fuchsia-600 italic'>Email:</strong> {data.email}</p>
 
       <button onClick={() => setShowModal(true)} className="btn btn-success mt-4">Take Assignment</button>
 
       {showModal && (
         <dialog open className="modal modal-open">
           <div className="modal-box">
-            <h3 className="font-bold text-lg">Submit Assignment</h3>
+            <h3 className="font-bold text-lg italic text-fuchsia-700">Submit Assignment</h3>
             <form onSubmit={handleSubmit} className="space-y-3 mt-4">
               <input type="url" name="link" placeholder="Google Docs Link" className="input input-bordered w-full" required />
               <textarea name="note" placeholder="Quick Note" className="textarea textarea-bordered w-full" required></textarea>
@@ -82,6 +81,7 @@ const Details = () => {
         </dialog>
       )}
     </div>
+      </>
   );
 };
 

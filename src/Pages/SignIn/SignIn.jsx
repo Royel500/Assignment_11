@@ -13,11 +13,11 @@ const SignIn = () => {
   const email = form.email.value;
   const password = form.password.value;
 
-  console.log("Creating user with:",name, email, password); 
+
 
   logIn(email, password) 
     .then(result => {
-      console.log("User created:", result.user);
+   
         Swal.fire({
         title: "Success!",
         text: "You are logIn successfully! 🎉",
@@ -26,7 +26,8 @@ const SignIn = () => {
       });
     })
     .catch(error => {
-      console.error("Firebase error:", error.code, error.message);
+      alert( error.code, error.message)
+
     });
 };
 

@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const Update = () => {
 
   const { _id, title, description, marks, thumbnail, difficulty, email, dueDate: initialDueDate } = useLoaderData();
-    console.log(title);
+    
 
     const [dueDate, setDueDate] = useState(initialDueDate ? new Date(initialDueDate) : null);
 

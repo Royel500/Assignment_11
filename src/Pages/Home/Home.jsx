@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { use } from 'react';
 import BannerSlider from './BannerSlider';
 import { Typewriter } from 'react-simple-typewriter';
 import Marquee from 'react-fast-marquee';
+import { ThemeContext } from './../Shear/ThemeProvider';
 
 const Home = () => {
+  const {theme} =use(ThemeContext);
   return (
     <section>
-        <p className='my-5 bg-fuchsia-200 py-2'>
+        <p className={`my-5 bg-fuchsia-200 py-2 ${
+             theme === 'dark' 
+        ? 'bg-gray-900 text-white' 
+        : 'bg-gradient-to-r from--400 via-yellow-200  text-gray-800'
+        }`}>
         <Marquee>
  Start Drafts Early to Avoid Stress! •  78% of Students Who Preview Lectures Score Higher •
    You’ve Completed 12/20 Assignments This Term! •  
@@ -51,7 +57,7 @@ const Home = () => {
 <div>
 
     <div className="space-y-4 mx-10 my-6">
-        <h1 className='text-3xl text-center font-bold italic '>   Frequently Asked Questions.</h1>
+        <h1 className='text-3xl text-center font-bold italic '>FAQ .</h1>
   <div className="collapse collapse-arrow bg-base-100 border border-base-300">
     <input type="radio" name="my-accordion-2" defaultChecked />
     <div className="collapse-title font-semibold">How do I create an account?</div>

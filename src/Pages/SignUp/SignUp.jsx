@@ -15,11 +15,11 @@ const handleSubmit = e => {
   const email = form.email.value;
   const password = form.password.value;
 
-  console.log("Creating user with:",name, email, password); 
+
 
   createUser(email, password) 
     .then(result => {
-      console.log("User created:", result.user);
+ 
            Swal.fire({
         title: "Success!",
         text: "Account created successfully! 🎉",
@@ -28,7 +28,8 @@ const handleSubmit = e => {
       });
     })
     .catch(error => {
-      console.error("Firebase error:", error.code, error.message);
+      alert(error.code, error.message)
+
     });
 };
 
