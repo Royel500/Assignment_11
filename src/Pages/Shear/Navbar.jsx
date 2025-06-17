@@ -89,7 +89,7 @@ const Navbar = () => {
       <div className="navbar-end gap-3 relative">
 
         
-     <button onClick={toggleTheme} className="mx-2">
+     <button onClick={toggleTheme} className="mx-2 bg-red-600 rounded-3xl p-1">
       {theme === 'light' ? <FaSun size={20}></FaSun> : <FaMoon size={20}></FaMoon> }
     </button>
 
