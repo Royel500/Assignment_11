@@ -1,15 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { use, useContext, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import { FaRegEdit, FaEye } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Context/AuthContext';
+import { ThemeContext } from '../Pages/Shear/ThemeProvider';
 
 const AllAssignments = () => {
     const { user } = useContext(AuthContext);
     const loadedAssignments = useLoaderData(); // Full list from loader
     const [assignments, setAssignments] = useState(loadedAssignments); // Displayed assignments
-
+    const {theme} =use(ThemeContext)
     const [searchText, setSearchText] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
     const [difficultyFilter, setDifficultyFilter] = useState('');
@@ -87,7 +88,14 @@ const AllAssignments = () => {
     };
 
     return (
-        <div className='bg-amber-50 my-10'>
+        <div className={` my-10 ${
+             theme === 'dark' 
+        ? 'bg-gray-900 text-white' 
+        : 'bg-amber-50'
+        }`}>
+
+
+
             <h1 className='font-bold text-3xl text-center italic my-5 text-fuchsia-800'>
                 All the Assignments here
             </h1>
@@ -120,7 +128,11 @@ const AllAssignments = () => {
             {/* Assignments Grid */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 mx-5'>
                 {assignments.map(assart => (
-                    <div className="card grid grid-cols-3 mx-2 py-3 bg-fuchsia-100 gap-5 shadow-2xl" key={assart._id}>
+                    <div className={`card grid grid-cols-3 bg-gradient-to-r  via-green-500 to-red-300 mx-2 py-3  gap-5 shadow-2xl${
+                               theme === 'dark' 
+        ? 'bg-gray-900 text-white' 
+        : ''
+                    }`} key={assart._id}>
                         <figure>
                             <img
                                 className='w-50 h-30 rounded-2xl'

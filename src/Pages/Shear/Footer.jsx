@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { use } from 'react';
+import { ThemeContext } from './ThemeProvider';
+
+
 
 const Footer = () => {
+   const { theme } = use(ThemeContext);
     return (
-     <footer className="footer sm:footer-horizontal bg-blue-100 dark:bg-gray-900 text-base-content dark:text-gray-200 p-10">  <nav className='font-bold'>
+     <footer className={`footer mt-8 sm:footer-horizontal text-base-content  p-10 ${
+         theme === 'dark' 
+        ? 'bg-gray-900 text-white' 
+        : 'bg-gradient-to-r from-yellow-300 via-sky-300 to-red-200 text-gray-800'
+     }`} > 
+     
+             {/* <nav className={`relative px-4 py-3 shadow-lg ${
+
+    }`}>
+
+    
+    </nav> */}
+
+
+      <nav className='font-bold'>
     <h6 className="footer-title">Services</h6>
     <a className="link link-hover">Branding</a>
     <a className="link link-hover">Design</a>

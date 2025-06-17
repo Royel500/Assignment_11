@@ -52,8 +52,14 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-white shadow-sm">
-      
+    <div className={`navbar shadow-sm ${
+            theme === 'dark' 
+        ? 'bg-gray-900 text-white' 
+        : 'bg-gradient-to-r from-blue-400 via-green-500 to-red-300 text-gray-800'
+    }`}>
+
+ 
+
       {/* Left: Logo and Mobile Menu */}
       <div className="navbar-start">
         <div className="dropdown">

@@ -1,9 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { use, useContext, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Context/AuthContext';
+import { ThemeContext } from '../Pages/Shear/ThemeProvider';
 
 const Details = () => {
+  const {theme} =use(ThemeContext);
   const data = useLoaderData();
    const { user } = useContext(AuthContext);
   console.log(data);
@@ -39,7 +41,21 @@ const Details = () => {
   };
 
   return (
-    <div className="max-w-xl bg-amber-50 mx-auto mt-8  p-6 rounded shadow">
+    <div className={`max-w-xl bg-gradient-to-r from-amber-100 to-cyan-500  mx-auto mt-8  p-6 rounded shadow${
+        theme === 'dark' 
+        ? 'bg-gray-900 text-white' 
+        : 'bg-gray-900'
+    }`}>
+
+             {/* <nav className={`relative px-4 py-3 shadow-lg ${
+      theme === 'dark' 
+        ? 'bg-gray-900 text-white' 
+        : 'bg-gradient-to-r from-blue-400 via-green-500 to-red-300 text-gray-800'
+    }`}>
+
+    
+    </nav> */}
+
       <h2 className="text-2xl font-bold mb-4 text-center italic underline text-blue-700">{data.title}</h2>
       <img src={data.thumbnail} alt={data.title} className="w-full h-48 object-cover rounded mb-4" />
       <p><strong>Description:</strong> {data.description}</p>
