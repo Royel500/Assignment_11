@@ -200,6 +200,74 @@ const Home = () => {
 
       {/* 7. Newsletter */}
       <NewsletterSignup />
+
+       <section className="space-y-4 mx-5 my-10">
+    <h2 className="text-3xl text-center font-bold italic mb-6">Frequently Asked Questions</h2>
+
+    <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+      <input type="radio" name="faq" defaultChecked />
+      <div className="collapse-title font-semibold">How do I create an account?</div>
+      <div className="collapse-content text-sm">
+        Click the "Sign Up" button in the top right corner and follow the registration process.
+      </div>
+    </div>
+
+    <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+      <input type="radio" name="faq" />
+      <div className="collapse-title font-semibold">I forgot my password. What should I do?</div>
+      <div className="collapse-content text-sm">
+        Click on "Forgot Password" on the login page and follow the instructions sent to your email.
+      </div>
+    </div>
+
+    <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+      <input type="radio" name="faq" />
+      <div className="collapse-title font-semibold">How do I update my profile information?</div>
+      <div className="collapse-content text-sm">
+        Go to "My Account" settings and select "Edit Profile" to make changes.
+      </div>
+    </div>
+
+    <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+      <input type="radio" name="faq" />
+      <div className="collapse-title font-semibold">How do I create a new assignment?</div>
+      <div className="collapse-content text-sm">
+        Navigate to the "Assignments" section and click "Create New Assignment". Fill in the details including title, description, due date, and any attachments.
+      </div>
+    </div>
+
+    <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+      <input type="radio" name="faq" />
+      <div className="collapse-title font-semibold">Can I set reminders for assignment deadlines?</div>
+      <div className="collapse-content text-sm">
+        Yes! Enable reminders when creating or editing an assignment. You’ll receive notifications before the due date.
+      </div>
+    </div>
+
+    <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+      <input type="radio" name="faq" />
+      <div className="collapse-title font-semibold">How do I submit a completed assignment?</div>
+      <div className="collapse-content text-sm">
+        Go to the assignment details page and click "Submit Assignment". Upload files and confirm submission.
+      </div>
+    </div>
+
+    <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+      <input type="radio" name="faq" />
+      <div className="collapse-title font-semibold">What file types can I upload for assignments?</div>
+      <div className="collapse-content text-sm">
+        PDF, DOCX, PPTX, XLSX, JPG, PNG, and ZIP files are supported. Max 100MB per file.
+      </div>
+    </div>
+
+    <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+      <input type="radio" name="faq" />
+      <div className="collapse-title font-semibold">Can I collaborate with others on an assignment?</div>
+      <div className="collapse-content text-sm">
+        Yes! You can invite team members to collaborate. Everyone can edit and track changes.
+      </div>
+    </div>
+  </section>
     </main>
   );
 };
