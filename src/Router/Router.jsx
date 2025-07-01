@@ -17,6 +17,8 @@ import Details from "../Components/Details";
 import Update from "../Components/Update";
 import Loading from "../Pages/Shear/Loading";
 import Error from "../Pages/Shear/Error";
+import Blog from "../Components/Blog";
+import ContactSection from "../Contact/ContactSection";
 
 
 const router = createBrowserRouter([
@@ -27,6 +29,7 @@ const router = createBrowserRouter([
     children:[
         {
             index:true ,
+          loader: () => fetch('https://assignment-server-11-roan.vercel.app/assignment'),
             element:<Home></Home>
         },
         {
@@ -72,8 +75,16 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`https://assignment-server-11-roan.vercel.app/assignment/${params.id}`),
           element: <PrivateRoute> <Update></Update>  </PrivateRoute> ,
           hydrateFallbackElement:<Loading/>
-        }
+        },
+     {
+      path:'/blog',
+      element:<Blog></Blog>
 
+     },
+     {
+      path:'/contact',
+      element:<ContactSection></ContactSection>
+     }
 
     ],
   

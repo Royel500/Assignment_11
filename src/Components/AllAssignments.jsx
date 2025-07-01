@@ -1,4 +1,4 @@
-import React, { use, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import { FaRegEdit, FaEye } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
@@ -8,9 +8,10 @@ import { ThemeContext } from '../Pages/Shear/ThemeProvider';
 
 const AllAssignments = () => {
     const { user } = useContext(AuthContext);
-    const loadedAssignments = useLoaderData(); // Full list from loader
+    const loadedAssignments = useLoaderData() || [];
+    console.log(loadedAssignments);
     const [assignments, setAssignments] = useState(loadedAssignments); // Displayed assignments
-    const {theme} =use(ThemeContext)
+    const { theme } = useContext(ThemeContext);
     const [searchText, setSearchText] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
     const [difficultyFilter, setDifficultyFilter] = useState('');
@@ -88,14 +89,7 @@ const AllAssignments = () => {
     };
 
     return (
-        <div className={` my-10 ${
-             theme === 'dark' 
-        ? 'bg-gray-900 text-white' 
-        : 'bg-amber-50'
-        }`}>
-
-
-
+        <div className={`my-10 ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-amber-50'}`}>
             <h1 className='font-bold text-3xl text-center italic my-5 text-fuchsia-800'>
                 All the Assignments here
             </h1>
@@ -128,12 +122,7 @@ const AllAssignments = () => {
             {/* Assignments Grid */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 mx-5'>
                 {assignments.map(assart => (
-    <div className={`card grid lg:grid-cols-2 grid-cols-1  bg-gradient-to-r from-cyan-500 to-red-300 mx-2 py-3  gap-5 shadow-2xl${
-                               theme === 'dark' 
-        ? 'bg-gray-900 text-white' 
-        : ''
-                    }`} key={assart._id}>
-                      
+                    <div className={`card grid lg:grid-cols-2 grid-cols-1 bg-gradient-to-r from-cyan-500 to-red-300 mx-2 py-3 gap-5 shadow-2xl${theme === 'dark' ? ' bg-gray-900 text-white' : ''}`} key={assart._id}>
                         <figure>
                             <img
                                 className='w-50 h-30 rounded-2xl'
@@ -141,27 +130,24 @@ const AllAssignments = () => {
                                 alt="Thumbnail"
                             />
                         </figure>
-                          <div className='grid grid-cols-2 px-3'>
-
-                          
-                        <div className="card-body">
-                            <h2 className="card-title flex flex-row">Title: {assart.title}</h2>
-                            <p>Difficulty: {assart.difficulty}</p>
-                            <p>Marks: {assart.marks}</p>
+                        <div className='grid grid-cols-2 px-3'>
+                            <div className="card-body">
+                                <h2 className="card-title flex flex-row">Title: {assart.title}</h2>
+                                <p>Difficulty: {assart.difficulty}</p>
+                                <p>Marks: {assart.marks}</p>
+                            </div>
+                            <div className="grid justify-end lg:pr-10 gap-2">
+                                <button onClick={() => handleUpdateClick(assart)} className="btn">
+                                    <FaRegEdit size={25} />
+                                </button>
+                                <button onClick={() => navigate(`/details/${assart._id}`)} className="btn">
+                                    <FaEye size={25} />
+                                </button>
+                                <button onClick={() => handleDelete(assart)} className="btn">
+                                    <MdDeleteForever size={25} />
+                                </button>
+                            </div>
                         </div>
-                          
-                        <div className="grid justify-end lg:pr-10 gap-2">
-                            <button onClick={() => handleUpdateClick(assart)} className="btn">
-                                <FaRegEdit size={25} />
-                            </button>
-                            <button onClick={() => navigate(`/details/${assart._id}`)} className="btn">
-                                <FaEye size={25} />
-                            </button>
-                            <button onClick={() => handleDelete(assart)} className="btn">
-                                <MdDeleteForever size={25} />
-                            </button>
-                        </div>
-                              </div>
                     </div>
                 ))}
             </div>
