@@ -32,7 +32,7 @@ const FeaturedAssignments = () => (
     <h2 className="text-3xl font-bold mb-4">Featured Assignments</h2>
     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {featuredAssignments.map(a => (
-        <li key={a.id} className="p-4 border rounded shadow-sm bg-white dark:bg-gray-800">
+        <li key={a.id} className="p-4 border rounded shadow-sm  dark:bg-gray-800">
           <h3 className="font-semibold">{a.title}</h3>
           <p>Difficulty: {a.difficulty}</p>
         </li>
@@ -79,7 +79,7 @@ const PromotionalBanner = () => (
 );
 
 const OffersSection = () => (
-  <section className="my-10 mx-5 bg-yellow-100 p-6 rounded-lg">
+  <section className="my-10 mx-5 bg-sky-800 p-6 rounded-lg">
     <h2 className="text-3xl font-bold mb-4">Current Offers</h2>
     <ul className="list-disc list-inside">
       {offers.map(o => (
@@ -90,7 +90,7 @@ const OffersSection = () => (
 );
 
 const NewsletterSignup = () => (
-  <section className="my-10 mx-5 p-8 bg-blue-50 rounded-lg text-center">
+  <section className="my-10 mx-5 p-8 border bg-green-600 shadow-blue-700 shadow-md  rounded-lg text-center">
     <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
     <input
       type="email"
@@ -153,7 +153,7 @@ const Home = () => {
     {topAssignments.map(assignment => (
       <div
         key={assignment._id || assignment.id}
-        className={`flex border rounded shadow-sm bg-white dark:bg-gray-800`}
+        className={`flex border rounded shadow-sm  `}
       >
         {/* Image on the left */}
         <div className="w-1/3">
