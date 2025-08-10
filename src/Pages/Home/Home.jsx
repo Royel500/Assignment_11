@@ -72,14 +72,14 @@ const Categories = () => (
 
 
 const PromotionalBanner = () => (
-  <section className="my-10 mx-5 bg-gradient-to-r from-purple-500 to-pink-500 text-white p-8 rounded-lg text-center">
+  <section className="my-10 mx-5  bg-gray-500 p-8 rounded-lg text-center">
     <h2 className="text-4xl font-bold mb-2">Special Offer!</h2>
     <p className="text-lg">Sign up today and get 1-month premium access FREE!</p>
   </section>
 );
 
 const OffersSection = () => (
-  <section className="my-10 mx-5 bg-sky-800 p-6 rounded-lg">
+  <section className="my-10 mx-5 bg-green-300 p-6 rounded-lg">
     <h2 className="text-3xl font-bold mb-4">Current Offers</h2>
     <ul className="list-disc list-inside">
       {offers.map(o => (
@@ -90,7 +90,7 @@ const OffersSection = () => (
 );
 
 const NewsletterSignup = () => (
-  <section className="my-10 mx-5 p-8 border bg-green-600 shadow-blue-700 shadow-md  rounded-lg text-center">
+  <section className="my-10 mx-5 p-8 border bg-g shadow-blue-700 shadow-md  rounded-lg text-center">
     <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
     <input
       type="email"

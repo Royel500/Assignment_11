@@ -20,7 +20,7 @@ const CreateAssignment = () => {
   
 
     // POST request
-    fetch('https://assignment-server-11-roan.vercel.app/assignment', {
+    fetch('http://localhost:3500/assignment', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

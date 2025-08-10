@@ -22,7 +22,7 @@ const Update = () => {
 
         //    ----update --
          // POST request
-            fetch(`https://assignment-server-11-roan.vercel.app/assignment/${_id}`, {
+            fetch(`http://localhost:3500/assignment/${_id}`, {
               method: 'PUT',
               headers: {
                 'content-type': 'application/json'

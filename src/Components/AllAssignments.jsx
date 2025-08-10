@@ -58,7 +58,7 @@ const AllAssignments = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://assignment-server-11-roan.vercel.app/assignment/${assart._id}`, {
+                fetch(`http://localhost:3500/assignment/${assart._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
