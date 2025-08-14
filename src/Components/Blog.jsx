@@ -31,7 +31,7 @@ const Blog = () => {
         {blogPosts.map((post, index) => (
           <div
             key={index}
-            className="bg-gradient-to-br from-blue-100 via-pink-100 to-yellow-100 p-6 rounded-xl shadow-lg border border-gray-200"
+            className="bg-gradient-to-br from-blue-100  p-6 rounded-xl shadow-lg border border-gray-200"
           >
             <h2 className="text-2xl font-semibold text-gray-800 mb-3">{post.title}</h2>
             <p className="text-gray-700 whitespace-pre-line">{post.content}</p>

@@ -1,32 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
+import Swal from 'sweetalert2';
 
 const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xrbldkwz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        // Show success message
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your message has been sent to the admin email successfully.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      Swal.fire({
+        title: 'Error!',
+        text: 'There was a problem sending your message. Please try again later.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
+  };
+
   return (
-    <div className="bg-sky-50
-p-8 rounded-xl font-bold  shadow-md">
-      <h3 className="text-2xl font-semibold text-gray-800 mb-6">Send a Message</h3>
-      <form className="space-y-5">
+    <div className="bg-gra p-8 rounded-xl font-bold border shadow-md">
+      <h3 className="text-2xl font-semibold  mb-6">Send a Message</h3>
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="name" className="block text-sm font-medium  mb-1">
             Full Name *
           </label>
           <input
             type="text"
             id="name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-black-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             placeholder="Mr Marko"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="email" className="block text-sm font-medium  mb-1">
             Email *
           </label>
           <input
             type="email"
             id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             placeholder="marko@example.com"
             required
@@ -34,28 +92,32 @@ p-8 rounded-xl font-bold  shadow-md">
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="subject" className="block text-sm font-medium  mb-1">
             Subject *
           </label>
           <input
             type="text"
             id="subject"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md
-             focus:ring-blue-500 focus:border-blue-500"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             placeholder="Project Inquiry"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="message" className="block text-sm font-medium  mb-1">
             Message *
           </label>
           <textarea
             id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
             rows="4"
-            className="w-full px-4 py-2 border border-gray-300 
-            rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             placeholder="Your message here..."
             required
           ></textarea>
@@ -63,7 +125,7 @@ p-8 rounded-xl font-bold  shadow-md">
 
         <button
           type="submit"
-          className="flex items-center justify-center w-full bg-blue-600  py-3 px-4 rounded-md hover:bg-blue-700 transition-colors"
+          className="flex items-center justify-center w-full bg-purple-300 py-3 px-4 rounded-md hover:bg-blue-700 transition-colors"
         >
           <FiSend className="mr-2" />
           Send Message

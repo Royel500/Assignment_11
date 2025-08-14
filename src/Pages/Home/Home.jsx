@@ -72,14 +72,14 @@ const Categories = () => (
 
 
 const PromotionalBanner = () => (
-  <section className="my-10 mx-5  bg-gray-500 p-8 rounded-lg text-center">
+  <section className="my-10 mx-5 border px-5 py-8 rounded-lg text-center">
     <h2 className="text-4xl font-bold mb-2">Special Offer!</h2>
     <p className="text-lg">Sign up today and get 1-month premium access FREE!</p>
   </section>
 );
 
 const OffersSection = () => (
-  <section className="my-10 mx-5 bg-green-300 p-6 rounded-lg">
+  <section className="my-10 mx-5 border p-6 rounded-lg">
     <h2 className="text-3xl font-bold mb-4">Current Offers</h2>
     <ul className="list-disc list-inside">
       {offers.map(o => (
@@ -115,15 +115,11 @@ const Home = () => {
   return (
     <main className={`${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
       <div className='my-5'>
-   <BannerSlider></BannerSlider>
-      </div>
-   
-
-      {/* ------marque----- */}
-      <p className={`my-5 bg-fuchsia-200 py-2 ${
+              {/* ------marque----- */}
+      <p className={`my-1 bg-fuchsia-200 py-2 ${
   theme === 'dark' 
     ? 'bg-gray-900 text-white' 
-    : 'bg-gradient-to-r from-yellow-400 via-yellow-200 text-gray-800'
+    : ' text-gray-800'
 }`}>
 
      
@@ -131,6 +127,11 @@ const Home = () => {
  Start Drafts Early to Avoid Stress! •  78% of Students Who Preview Lectures Score Higher •
    You’ve Completed 12/20 Assignments This Term! •  
 </Marquee> </p>
+   <BannerSlider></BannerSlider>
+      </div>
+   
+
+
 
       <h3 className='text-center text-blue-700 font-bold text-3xl italic mt-20'>
         <Typewriter
@@ -160,7 +161,7 @@ const Home = () => {
           <img
             src={assignment.thumbnail  || 'https://via.placeholder.com/150'}
             alt={assignment.title || 'Assignment image'}
-            className="object-cover w-full h-full rounded-xl p-1"
+            className="object-cover w-full h-50 rounded-xl p-1"
             style={{ minHeight: '100px' }}
           />
         </div>

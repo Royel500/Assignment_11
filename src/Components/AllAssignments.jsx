@@ -58,7 +58,7 @@ const AllAssignments = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3500/assignment/${assart._id}`, {
+                fetch(`https://assignment-server-11-roan.vercel.app/assignment/${assart._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -89,7 +89,7 @@ const AllAssignments = () => {
     };
 
     return (
-        <div className={`my-10 ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-amber-50'}`}>
+        <div className={`my-10 ${theme === 'dark' ? 'bg-gray-900 text-white' : ''}`}>
             <h1 className='font-bold text-3xl text-center italic my-5 text-fuchsia-800'>
                 All the Assignments here
             </h1>
@@ -122,7 +122,7 @@ const AllAssignments = () => {
             {/* Assignments Grid */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 mx-5'>
                 {assignments.map(assart => (
-                    <div className={`card grid lg:grid-cols-2 grid-cols-1 bg-gradient-to-r from-cyan-500 to-red-300 mx-2 py-3 gap-5 shadow-2xl${theme === 'dark' ? ' bg-gray-900 text-white' : ''}`} key={assart._id}>
+                    <div className={`card grid lg:grid-cols-2 grid-cols-1 bg-gray-200 mx-2 py-3 gap-5 shadow-2xl${theme === 'dark' ? ' bg-gray-900 text-white' : ''}`} key={assart._id}>
                         <figure>
                             <img
                                 className='w-50 h-30 rounded-2xl'

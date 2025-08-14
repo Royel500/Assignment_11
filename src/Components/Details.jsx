@@ -26,7 +26,7 @@ const Details = () => {
       submittedAt: new Date().toISOString()
     };
 
-    const res = await fetch('http://localhost:3500/submittedAssignment', {
+    const res = await fetch('https://assignment-server-11-roan.vercel.app/submittedAssignment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(submission)
@@ -43,9 +43,8 @@ const Details = () => {
   return (
      <> 
     <h1 className='text-3xl text-fuchsia-800
-     font-bold text-center my-2 italic underline'> This is Details Page <br /> Of the Assignment</h1>
-    <div className={`max-w-xl bg-gradient-to-r
-     font-bold from-amber-200 to-cyan-500  mx-auto mt-8 
+     font-bold text-center my-2 italic '> Assignment Details Page </h1>
+    <div className={`max-w-xl bg-base-200 to-cyan-500  mx-auto mt-8 
       p-6 rounded shadow${
         theme === 'dark' 
         ? 'bg-gray-900 text-white' 
@@ -54,15 +53,22 @@ const Details = () => {
 
 
                 
-      <h2 className="text-2xl font-bold mb-4 text-center italic
-       underline text-blue-700"> {data.title}</h2>
+      <h2 className="text-2xl  font-bold mb-4 text-center italic
+        text-blue-700"> {data.title}</h2>
       <img src={data.thumbnail} alt={data.title} className="w-full h-48 object-cover rounded mb-4" />
-      
-      <p><strong className='underline text-fuchsia-600 italic'>Marks:</strong> {data.marks}</p>
-      <p><strong className='underline text-fuchsia-600 italic'>Difficulty:</strong> {data.difficulty}</p>
-      <p><strong className='underline text-fuchsia-600 italic'>Due Date:</strong> {data.dueDate}</p>
-      <p><strong className='underline text-fuchsia-600 italic'>Email:</strong> {data.email}</p>
-      <p><strong className='underline text-fuchsia-600 italic'>Description:</strong> {data.description}</p>  
+     <section className='flex justify-around'>
+        <div>
+         <p><strong className=' italic'>Marks:</strong> {data.marks}</p>
+      <p><strong className=' italic'>Difficulty:</strong> {data.difficulty}</p>
+      </div>
+     <div>
+      <p><strong className=' italic'>Due Date:</strong> {data.dueDate}</p>
+      <p><strong className=' italic'>Email:</strong> {data.email}</p>
+     </div>
+     </section>
+    
+     
+      <p className='my-2'><strong className=' italic'>Description:</strong> {data.description}</p>  
       <button onClick={() => setShowModal(true)} className="btn btn-success mt-4">Take Assignment</button>
 
       {showModal && (

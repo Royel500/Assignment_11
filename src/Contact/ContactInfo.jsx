@@ -34,21 +34,21 @@ const ContactInfo = () => {
 
   return (
     <div className="
-     bg-green-50 
+      border
  p-8 rounded-xl font-bold shadow-md">
-      <h3 className="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+      <h3 className="text-2xl font-semibold  mb-6">Contact Information</h3>
       <div className="space-y-5">
         {contactItems.map((item, index) => (
           <div key={index} className="flex items-start">
             <div className="mr-4 mt-1">{item.icon}</div>
             <div>
-              <h4 className="text-sm font-medium text-gray-500">{item.title}</h4>
+              <h4 className="text-sm font-medium ">{item.title}</h4>
               {item.link ? (
                 <a href={item.link} className="text-blue-600 hover:underline">
                   {item.value}
                 </a>
               ) : (
-                <p className="text-gray-800">{item.value}</p>
+                <p className="">{item.value}</p>
               )}
             </div>
           </div>

@@ -20,7 +20,7 @@ const CreateAssignment = () => {
   
 
     // POST request
-    fetch('http://localhost:3500/assignment', {
+    fetch('https://assignment-server-11-roan.vercel.app/assignment', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -43,8 +43,8 @@ const CreateAssignment = () => {
   };
 
   return (
-    <div className="max-w-xl  mx-auto my-8 bg-pink-100 p-6 rounded shadow">
-      <h2 className="text-2xl font-bold italic text-center underline text-blue-700 mb-6">Create Assignment</h2>
+    <div className="max-w-xl  mx-auto my-8 bg-base-300 p-6 rounded shadow">
+      <h2 className="text-2xl font-bold italic text-center mb-6">Create Assignment</h2>
       <form onSubmit={AddAssignment} className="space-y-4">
 
         <input
@@ -110,9 +110,8 @@ const CreateAssignment = () => {
           />
         </div>
 
-        <button type="submit" className="btn bg-gradient-to-r
-         from-red-400 
-         to-green-600  text-gray-800 w-full">
+        <button type="submit" className="btn bg-green-400
+      text-gray-800 w-full">
           Create Assignment
         </button>
       </form>

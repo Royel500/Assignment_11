@@ -48,7 +48,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className={`navbar shadow-sm ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gradient-to-r from-blue-400 via-green-500 to-red-300 text-gray-800'}`}>
+    <div className={`navbar shadow-sm ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-slate-200 text-gray-800'}`}>
       {/* Left: Logo + Mobile menu toggle */}
       <div className="navbar-start">
         {/* Mobile Menu Toggle */}

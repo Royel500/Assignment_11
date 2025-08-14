@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     children:[
         {
             index:true ,
-          loader: () => fetch('http://localhost:3500/assignment'),
+          loader: () => fetch('https://assignment-server-11-roan.vercel.app/assignment'),
             element:<Home></Home>
         },
         {
@@ -59,20 +59,20 @@ const router = createBrowserRouter([
 
         {
           path:'/assignments', 
-          loader: () => fetch('http://localhost:3500/assignment'),
+          loader: () => fetch('https://assignment-server-11-roan.vercel.app/assignment'),
           element:  <AllAssignments></AllAssignments> ,
            hydrateFallbackElement:<Loading/>
                 },
         {
           path: '/details/:id',
           element: <PrivateRoute><Details /></PrivateRoute> ,
-        loader: ({params}) => fetch(`http://localhost:3500/assignment/${params.id}`),
+        loader: ({params}) => fetch(`https://assignment-server-11-roan.vercel.app/assignment/${params.id}`),
          hydrateFallbackElement:<Loading/>
         },
 
         {
           path:'/update/:id' ,
-        loader: ({params}) => fetch(`http://localhost:3500/assignment/${params.id}`),
+        loader: ({params}) => fetch(`https://assignment-server-11-roan.vercel.app/assignment/${params.id}`),
           element: <PrivateRoute> <Update></Update>  </PrivateRoute> ,
           hydrateFallbackElement:<Loading/>
         },

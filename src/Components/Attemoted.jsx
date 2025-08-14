@@ -21,7 +21,7 @@ const Attemoted = () => {
       }
 
       try {
-        const res = await fetch(`http://localhost:3500/submittedAssignments/${encodeURIComponent(email)}`);
+        const res = await fetch(`https://assignment-server-11-roan.vercel.app/submittedAssignments/${encodeURIComponent(email)}`);
         const data = await res.json();
        
         setAssignments(data);
@@ -40,7 +40,7 @@ const Attemoted = () => {
       className={`my-10 max-w-6xl font-bold mx-auto p-4 ${
         theme === 'dark'
           ? 'bg-gray-700 border text-white'
-          : 'bg-gradient-to-r from-orange-100 via-blue-300 to-sky-200 text-gray-800'
+          : ' to-sky-200 text-gray-800'
       }`}
     >
       <h2 className="text-2xl font-bold mb-6 italic text-purple-700 text-center">
